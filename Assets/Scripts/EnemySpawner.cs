@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies();
+        StartCoroutine(SpawnEnemies());
     }
 
     //Instantiates/spawns enemies as children of enemy spawner
-    private void SpawnEnemies(){
+    private IEnumerator SpawnEnemies(){
         for (int i = 0; i < currentWave.GetEnemyCount(); i++){
             
             Instantiate(
@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
                 Quaternion.identity,
                 transform
             );
+            yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
         }
     }
 }
