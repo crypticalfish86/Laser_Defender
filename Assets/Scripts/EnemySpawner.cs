@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] WaveConfigurationSO currentWave;//the current wave configuration
+    [SerializeField] List<WaveConfigurationSO> waveConfigurations;
+    [SerializeField] float timeBetweenWavesInSeconds = 0f;
+    WaveConfigurationSO currentWave;//the current wave configuration
         public WaveConfigurationSO GetCurrentWave(){
             return currentWave;
         }
@@ -12,20 +14,26 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        StartCoroutine(SpawnEnemyWaves());
     }
 
-    //Instantiates/spawns enemies as children of enemy spawner
-    private IEnumerator SpawnEnemies(){
-        for (int i = 0; i < currentWave.GetEnemyCount(); i++){
+    //Spawns each wave consecutively with a wait time in between waves(if a delay is added)
+    private IEnumerator SpawnEnemyWaves(){
+        //spawns each wave after the previous one has finished and delay time has been elapsed
+        foreach(WaveConfigurationSO wave in waveConfigurations){
+            currentWave = wave;
+            //spawn all enemies in the current wave
+            for (int i = 0; i < currentWave.GetEnemyCount(); i++){
             
-            Instantiate(
-                currentWave.GetEnemyPrefabAtIndex(i), 
-                currentWave.GetStartingWaypointOnEnemyPathPrefab().position, 
-                Quaternion.identity,
-                transform
-            );
-            yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
+                Instantiate(
+                    currentWave.GetEnemyPrefabAtIndex(i), 
+                    currentWave.GetStartingWaypointOnEnemyPathPrefab().position, 
+                    Quaternion.identity,
+                    transform
+                );
+                yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
+            }
+        yield return new WaitForSeconds(timeBetweenWavesInSeconds);
         }
     }
 }
