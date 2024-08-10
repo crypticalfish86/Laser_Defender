@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa2ac067b6a99e45a0fffc28b24a96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfiguration: {fileID: 11400000, guid: 6b87eb4358cacf84ca08aa862b890027, type: 2}
 --- !u!1 &5150257635997998145
 GameObject:
   m_ObjectHideFlags: 0
