@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  boundaryPaddingX: 0.35
+  boundaryPaddingY: 1.3
 --- !u!1 &6792603610381994579
 GameObject:
   m_ObjectHideFlags: 0
