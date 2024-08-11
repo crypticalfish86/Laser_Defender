@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipHealth: 100
   objectDamageOutput: 100
+  hitEffect: {fileID: 3587358097726643116, guid: d4fcb57ac6b35dc4bb6aa4938b3fadf9, type: 3}
 --- !u!114 &4425964745266676622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +201,8 @@ MonoBehaviour:
   projectileLifetime: 5
   timeBetweenShots: 0.2
   useAutomatedFiring: 0
+  enemyFireRateVariability: 0.5
+  minimumEnemyTimeBetweenShots: 0.2
   isFiring: 0
 --- !u!61 &1897901777978470710
 BoxCollider2D:
