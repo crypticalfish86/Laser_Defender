@@ -456,6 +456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309035007252238061, guid: 7a3a0fb91ccca0a4ba65ca6c5e839503, type: 3}
+      propertyPath: moveSpeed.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6290189662568067103, guid: 7a3a0fb91ccca0a4ba65ca6c5e839503, type: 3}
       propertyPath: m_Name
       value: BackgroundStarMap
