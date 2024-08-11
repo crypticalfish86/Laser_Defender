@@ -11,7 +11,7 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField] float projectileLifetime = 5f;
     [SerializeField] float timeBetweenShots = 0.2f;
     [Header("Attributes for enemy Ai")]
-    [SerializeField] bool useAutomatedFiring;
+    public bool useAIFiringSystem;
     [SerializeField] float enemyFireRateVariability = 0.5f;
     [SerializeField] float minimumEnemyTimeBetweenShots = 0.2f;
 
@@ -22,7 +22,7 @@ public class ProjectileShooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(useAutomatedFiring){
+        if(useAIFiringSystem){
             isFiring = true;
         }
     }
@@ -53,7 +53,7 @@ public class ProjectileShooter : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Rigidbody2D myRigidBody = instance.GetComponent<Rigidbody2D>();
             if (myRigidBody != null){
-                if (useAutomatedFiring){
+                if (useAIFiringSystem){
                     myRigidBody.velocity = new Vector3 (0, -1  * projectileSpeed, 0);
                 }
                 else {
@@ -62,7 +62,7 @@ public class ProjectileShooter : MonoBehaviour
             }
             Destroy(instance, projectileLifetime);
             //if gameObject is an enemy ai then add variability to shot time to add level of randomness, otherwise its the player which has a consistent fire rate
-            if (useAutomatedFiring){
+            if (useAIFiringSystem){
                 float randomTimeBetweenShots = Random.Range(timeBetweenShots - enemyFireRateVariability, timeBetweenShots + enemyFireRateVariability);
                 //ensure the time between shots doesn't go below a certain minimum rate
                 if (randomTimeBetweenShots < minimumEnemyTimeBetweenShots){

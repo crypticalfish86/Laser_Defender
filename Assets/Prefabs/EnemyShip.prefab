@@ -154,7 +154,7 @@ MonoBehaviour:
   projectileSpeed: 5
   projectileLifetime: 5
   timeBetweenShots: 1
-  useAutomatedFiring: 1
+  useAIFiringSystem: 1
   enemyFireRateVariability: 0.5
   minimumEnemyTimeBetweenShots: 0.2
   isFiring: 0

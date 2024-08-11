@@ -8,6 +8,11 @@ public class ShipHealthAndDamage : MonoBehaviour
     [SerializeField] int objectDamageOutput = 10;
     [SerializeField] ParticleSystem hitEffect;
     
+    CameraShake cameraShake;
+
+    private void Awake() {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
 
     //When colliding with another trigger, damage the object associated with that trigger
     private void OnTriggerEnter2D(Collider2D other) {
@@ -27,6 +32,9 @@ public class ShipHealthAndDamage : MonoBehaviour
     }
 
     private void PlayHitEffect(){
+        if (gameObject.tag == "Player"){
+            cameraShake.Play();
+        }
         if(hitEffect != null){
             ParticleSystem instance = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
