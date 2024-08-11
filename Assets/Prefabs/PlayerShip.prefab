@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -2333676806839873895}
   - component: {fileID: 1143393003825631763}
   - component: {fileID: -2008949652862979881}
+  - component: {fileID: 4425964745266676622}
   - component: {fileID: 1897901777978470710}
   - component: {fileID: -86495270813332967}
   m_Layer: 7
@@ -182,6 +183,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipHealth: 100
   objectDamageOutput: 100
+--- !u!114 &4425964745266676622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810219364703740008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df0ba8a34fbc144393bf962dd36f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8097192608682717880, guid: 4e7ce067d1ebee1408bedf427ae1381b, type: 3}
+  projectileSpeed: 10
+  projectileLifetime: 5
+  timeBetweenShots: 0.2
+  useAutomatedFiring: 0
+  isFiring: 0
 --- !u!61 &1897901777978470710
 BoxCollider2D:
   m_ObjectHideFlags: 0

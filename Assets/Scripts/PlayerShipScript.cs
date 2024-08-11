@@ -60,6 +60,8 @@ public class PlayerShipScript : MonoBehaviour
     private void OnMove(InputValue value) {
         rawMoveInputVector = value.Get<Vector2>();
     }
+
+    //When we press space key isFiring in shooterScript flips to true
     private void OnFire(InputValue value){
         if (shooterScript != null){
             shooterScript.isFiring = value.isPressed;
