@@ -5,16 +5,15 @@ using UnityEngine;
 public class ShipHealthAndDamage : MonoBehaviour
 {
     [SerializeField] int shipHealth = 50;
-    [SerializeField] int shipDamageOutput = 10;
+    [SerializeField] int objectDamageOutput = 10;
     
 
+    //When colliding with another trigger, damage the object associated with that trigger
     private void OnTriggerEnter2D(Collider2D other) {
-        if (gameObject.tag == "Enemy" && other.gameObject.tag == "Player"){
-            other.gameObject.GetComponent<ShipHealthAndDamage>().TakeDamage(shipDamageOutput * 3);
-            Destroy(gameObject);
-        }
+        other.gameObject.GetComponent<ShipHealthAndDamage>().TakeDamage(objectDamageOutput);
     }
 
+    //damage this object, if health drops to 0, destroy the object
     private void TakeDamage(int damageAmount){
         Debug.Log("hit");
         if (shipHealth - damageAmount < 0){

@@ -12,10 +12,7 @@ public class PlayerShipScript : MonoBehaviour
     private Vector2 rawMoveInputVector; //raw movement input
         private Vector3 upcomingMovementVector; //movement adjusted for frame rate + movement speed
     
-        //get the raw movement input value from the player input component
-        private void OnMove(InputValue value) {
-            rawMoveInputVector = value.Get<Vector2>();
-        }
+
 
     //player boundaries
         [SerializeField] float boundaryPaddingX;
@@ -30,6 +27,10 @@ public class PlayerShipScript : MonoBehaviour
             maximumPlayerMapBoundary = mainCamera.ViewportToWorldPoint(new Vector2 (1,1));
         }
 
+    ProjectileShooter shooterScript;
+    private void Awake(){
+        shooterScript = GetComponent<ProjectileShooter>();
+    }
     private void Start() {
         InitiatePlayerBoundaryValues();
     }
@@ -53,5 +54,15 @@ public class PlayerShipScript : MonoBehaviour
         upComingPosition.y = Math.Clamp(transform.position.y + upcomingMovementVector.y, minimumPlayerMapBoundary.y + boundaryPaddingY, maximumPlayerMapBoundary.y - boundaryPaddingY);
         
         transform.position = upComingPosition;
+    }
+
+            //get the raw movement input value from the player input component
+    private void OnMove(InputValue value) {
+        rawMoveInputVector = value.Get<Vector2>();
+    }
+    private void OnFire(InputValue value){
+        if (shooterScript != null){
+            shooterScript.isFiring = value.isPressed;
+        }
     }
 }

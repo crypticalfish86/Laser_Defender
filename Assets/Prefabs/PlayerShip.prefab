@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4566686056756823664}
   - component: {fileID: 7529951670234634810}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShipLines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1291933589
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300034, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   m_Color: {r: 0, g: 0.09538102, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -2008949652862979881}
   - component: {fileID: 1897901777978470710}
   - component: {fileID: -86495270813332967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c5d4ae4eb556d4e9a3573500de283d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 50
-  shipDamageOutput: 10
+  shipHealth: 100
+  objectDamageOutput: 100
 --- !u!61 &1897901777978470710
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7848367271871842786}
   - component: {fileID: 8495450910297367338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShipFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1291933589
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3994876428135915000}
   - component: {fileID: 8639418157572903100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShipHull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1291933589
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300004, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

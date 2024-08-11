@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6744389599140130654}
   - component: {fileID: -8038785305139769641}
   - component: {fileID: 3626676907769538547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyShip
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipHealth: 50
-  shipDamageOutput: 10
+  objectDamageOutput: 30
 --- !u!61 &-8038785305139769641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7414070043716318853}
   - component: {fileID: 6000483947424172838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipLines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7824229820294683190}
   - component: {fileID: 6706958511483086444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipHull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7372872185610942096}
   - component: {fileID: 5016892052275901824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
