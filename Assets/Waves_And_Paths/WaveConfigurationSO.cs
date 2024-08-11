@@ -24,8 +24,6 @@ public class WaveConfigurationSO : ScriptableObject
     [SerializeField] float minimumTimeBetweenEnemySpawns = 0.2f; //The minimum amount of time between enemy spawns (if value goes under minimum, spawntime defaults to this value)
     [Header("Enemy stats")]
     [SerializeField] float enemyMovementSpeed = 5f;//the movement speed of these enemies
-    [SerializeField] float enemyFireRate = 1f;//The fire rate of the enemies being spawned this wave
-    [SerializeField] float enemyHealth = 100f;//the health of each individual enemy
 
     
     //returns the number of enemies that will spawn this wave

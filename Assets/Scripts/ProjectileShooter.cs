@@ -4,12 +4,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileShooter : MonoBehaviour
-{
+{   
+    [Header("General attributes")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifetime = 5f;
     [SerializeField] float timeBetweenShots = 0.2f;
+    [Header("Attributes for enemy Ai")]
     [SerializeField] bool useAutomatedFiring;
+    [SerializeField] float enemyFireRateVariability = 0.5f;
+    [SerializeField] float minimumEnemyTimeBetweenShots = 0.2f;
 
     public bool isFiring;
 
@@ -57,7 +61,18 @@ public class ProjectileShooter : MonoBehaviour
                 }
             }
             Destroy(instance, projectileLifetime);
-            yield return new WaitForSeconds(timeBetweenShots);
+            //if gameObject is an enemy ai then add variability to shot time to add level of randomness, otherwise its the player which has a consistent fire rate
+            if (useAutomatedFiring){
+                float randomTimeBetweenShots = Random.Range(timeBetweenShots - enemyFireRateVariability, timeBetweenShots + enemyFireRateVariability);
+                //ensure the time between shots doesn't go below a certain minimum rate
+                if (randomTimeBetweenShots < minimumEnemyTimeBetweenShots){
+                    randomTimeBetweenShots = minimumEnemyTimeBetweenShots;
+                } 
+                yield return new WaitForSeconds(randomTimeBetweenShots);
+            }
+            else {
+                yield return new WaitForSeconds(timeBetweenShots);
+            }
         }
     }
 }
