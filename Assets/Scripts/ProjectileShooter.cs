@@ -18,6 +18,8 @@ public class ProjectileShooter : MonoBehaviour
     public bool isFiring;
 
     Coroutine firingCoroutine;//A variable to store our coroutine (for us to check if one is active or not in our code)
+
+    AudioPlayer audioPlayer;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class ProjectileShooter : MonoBehaviour
         if(useAIFiringSystem){
             isFiring = true;
         }
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -51,6 +54,9 @@ public class ProjectileShooter : MonoBehaviour
         while (isFiring){
             GameObject instance =
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            if (!useAIFiringSystem){
+                audioPlayer.PlayShootingClip();
+            }
             Rigidbody2D myRigidBody = instance.GetComponent<Rigidbody2D>();
             if (myRigidBody != null){
                 if (useAIFiringSystem){

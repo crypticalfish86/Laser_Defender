@@ -9,9 +9,14 @@ public class ShipHealthAndDamage : MonoBehaviour
     [SerializeField] ParticleSystem hitEffect;
     
     CameraShake cameraShake;
+    AudioPlayer audioPlayer;
 
     private void Awake() {
         cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
+
+    private void Start() {
+        audioPlayer = FindFirstObjectByType<AudioPlayer>();
     }
 
     //When colliding with another trigger, damage the object associated with that trigger
@@ -33,6 +38,7 @@ public class ShipHealthAndDamage : MonoBehaviour
 
     private void PlayHitEffect(){
         if (gameObject.tag == "Player"){
+            audioPlayer.PlayDamageClip();
             cameraShake.Play();
         }
         if(hitEffect != null){
