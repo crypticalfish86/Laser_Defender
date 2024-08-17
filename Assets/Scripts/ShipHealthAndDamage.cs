@@ -23,6 +23,7 @@ public class ShipHealthAndDamage : MonoBehaviour
     
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
+    LevelManager levelManager;
 
     private void Awake() {
         cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -31,6 +32,7 @@ public class ShipHealthAndDamage : MonoBehaviour
     private void Start() {
         audioPlayer = FindFirstObjectByType<AudioPlayer>();
         startingShipHealth = shipHealth;
+        levelManager = FindFirstObjectByType<LevelManager>();
     }
 
     //When colliding with another trigger, damage the object associated with that trigger 
@@ -47,6 +49,9 @@ public class ShipHealthAndDamage : MonoBehaviour
             //if the thing bullet collided with was an enemy update score
             if (gameObject.tag == "Enemy"){
                 FindFirstObjectByType<ScoreKeeper>().UpdateScore(100);
+            }
+            else if (gameObject.tag == "Player"){
+                levelManager.LoadGameOver();
             }
         }
         else {
