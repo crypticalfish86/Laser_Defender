@@ -5,8 +5,18 @@ using UnityEngine;
 public class ShipHealthAndDamage : MonoBehaviour
 {
     [SerializeField] int shipHealth = 50; //health of the ship
+        int startingShipHealth;
         public int GetShipHealth(){
             return shipHealth;
+        }
+        public float GetShipHealthAsRatio(){
+            if (startingShipHealth != 0){
+
+                return (shipHealth / startingShipHealth);
+            }
+            else {
+                return 1;
+            }
         }
     [SerializeField] int objectDamageOutput = 10; //the amount of damage this ship object does
     [SerializeField] ParticleSystem hitEffect;
@@ -20,6 +30,7 @@ public class ShipHealthAndDamage : MonoBehaviour
 
     private void Start() {
         audioPlayer = FindFirstObjectByType<AudioPlayer>();
+        startingShipHealth = shipHealth;
     }
 
     //When colliding with another trigger, damage the object associated with that trigger 
