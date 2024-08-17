@@ -12,11 +12,16 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     public void LoadGameOver(){
-        SceneManager.LoadScene(2);
+        StartCoroutine(WaitAndLoad(2, 2));
     }
 
     public void QuitGame(){
         Debug.Log("Quitting game");
         Application.Quit();
+    }
+
+    IEnumerator WaitAndLoad(int sceneIndex, float waitTime){
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(sceneIndex);
     }
 }
