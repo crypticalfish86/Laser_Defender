@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1143393003825631763}
   - component: {fileID: -2008949652862979881}
   - component: {fileID: 4425964745266676622}
+  - component: {fileID: -7631921444823297859}
   - component: {fileID: 1897901777978470710}
   - component: {fileID: -86495270813332967}
   m_Layer: 7
@@ -200,10 +201,22 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileLifetime: 5
   timeBetweenShots: 0.2
-  useAutomatedFiring: 0
+  useAIFiringSystem: 0
   enemyFireRateVariability: 0.5
   minimumEnemyTimeBetweenShots: 0.2
   isFiring: 0
+--- !u!114 &-7631921444823297859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810219364703740008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194f15d2edc53bc409ffe452ff546bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1897901777978470710
 BoxCollider2D:
   m_ObjectHideFlags: 0
