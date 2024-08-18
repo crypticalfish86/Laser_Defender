@@ -14,6 +14,7 @@ public class UIGameOver : MonoBehaviour
     void Start()
     {
         scoreText.text = scoreKeeper.GetCurrentScore().ToString("00000000");
+        scoreKeeper.ResetScore();
     }
 
     // Update is called once per frame
